@@ -237,5 +237,5 @@ with open(csvpath, 'w', newline='') as csvfile:
     csvwriter.writerow(header)
 
     # Then we can write the data rows
-    for row in inexpensive_loans:
-        csvwriter.writerow(row.values())
+    for loan in inexpensive_loans:
+        csvwriter.writerow(loan.values())
