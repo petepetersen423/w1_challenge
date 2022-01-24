@@ -228,9 +228,9 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+#
 
-csvpath = Path("inexpensiveloans.csv")
-with open(csvpath, 'w', newline='') as csvfile:
+with open(output_path, 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
 
     # Write our header row first!
