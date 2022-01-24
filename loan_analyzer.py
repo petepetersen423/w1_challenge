@@ -66,10 +66,10 @@ loan = {
 }
 
 discount_rate = .2
-future_value = loan["future_value"]
-remaining_months = loan["remaining_months"]
-loan_price = loan["loan_price"]
-repayment_interval = loan["repayment_interval"]
+future_value = loan.get("future_value")
+remaining_months = loan.get("remaining_months")
+loan_price = loan.get("loan_price")
+repayment_interval = loan.get("repayment_interval")
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
