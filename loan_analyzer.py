@@ -1,7 +1,7 @@
 # coding: utf-8
 import csv
 from pathlib import Path
-# Hello Pete
+
 """Part 1: Automate the Calculations.
 
 Automate the calculations for the loan portfolio summaries.
@@ -65,15 +65,20 @@ loan = {
     "future_value": 1000,
 }
 
+
+
+# @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
+# Print each variable.
+# YOUR CODE HERE!
+
+# Retrieve the dictionary keys needed for the present value calculation and set variables
 discount_rate = .2
 future_value = loan.get("future_value")
 remaining_months = loan.get("remaining_months")
 loan_price = loan.get("loan_price")
 repayment_interval = loan.get("repayment_interval")
 
-# @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
-# Print each variable.
-# YOUR CODE HERE!
+# Printing the requested variables
 
 print("Discount Rate:  ", discount_rate)
 print("Future Value :", future_value)
@@ -89,8 +94,10 @@ print("Remaining Months", remaining_months)
 
 # YOUR CODE HERE!
 
+# Calculate the present value of the loan ion the dictionary
 present_value = future_value / (1 + (discount_rate / 12)) ** remaining_months
 
+# Printing the present value of the loan and use the .format() to format commas and two decimel places
 print("Present Value is {0:,.2f}".format(present_value))
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
@@ -98,6 +105,8 @@ print("Present Value is {0:,.2f}".format(present_value))
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
 # YOUR CODE HERE!
+
+# Determine if the loan is profitable
 
 if present_value >= loan_price:
     print("The loan is worth at least the cost to buy it.")
@@ -131,6 +140,7 @@ new_loan = {
 # YOUR CODE HERE!
 
 
+# define a function to calculate present value
 
 def present_value(future_value, remaining_months, annual_discount_rate):
     present_value = future_value / (1 + (annual_discount_rate / 12)) ** remaining_months
@@ -140,14 +150,14 @@ def present_value(future_value, remaining_months, annual_discount_rate):
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
 
+# Setting discount rate
 discount_rate = .2
-future_value = new_loan["future_value"]
-remaining_months = new_loan["remaining_months"]
-loan_price = new_loan["loan_price"]
-repayment_interval = new_loan["repayment_interval"]
 
-present_value = present_value(future_value,remaining_months, discount_rate)
+# Passing the dictionary values into the present value function
 
+present_value = present_value(new_loan["future_value"],new_loan["remaining_months"], discount_rate)
+
+# Printing the present value and formatting to two decimel places
 print("The present value of the loan is: {0:,.2f}".format(present_value))
 
 
@@ -222,14 +232,14 @@ Output this list of inexpensive loans to a csv file
 # Set the output header
 header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 
-# Set the output file path
+# Set the output file path and filename
 output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
 #
-
+# Create the csvwriter object
 with open(output_path, 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
 
