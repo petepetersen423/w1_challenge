@@ -34,7 +34,7 @@ print("Total of all loans is ${0:,.2f}".format(total_loans))
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
 # YOUR CODE HERE!
-average_loan = total_loans/num_loans
+average_loan = total_loans / num_loans
 print("The average loan value is ${0:,.2f}".format(average_loan))
 
 """Part 2: Analyze Loan Data.
@@ -69,13 +69,12 @@ loan = {
 }
 
 
-
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
 # YOUR CODE HERE!
 
 # Retrieve the dictionary keys needed for the present value calculation and set variables
-discount_rate = .2
+discount_rate = 0.2
 future_value = loan.get("future_value")
 remaining_months = loan.get("remaining_months")
 loan_price = loan.get("loan_price")
@@ -85,9 +84,8 @@ repayment_interval = loan.get("repayment_interval")
 
 print("Discount Rate:  ", discount_rate)
 print("Future Value :", future_value)
-print("Loan Price",loan_price)
+print("Loan Price", loan_price)
 print("Remaining Months", remaining_months)
-
 
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
@@ -117,7 +115,6 @@ else:
     print("the loan is too expensive and not worth the price.")
 
 
-
 """Part 3: Perform Financial Calculations.
 
 Perform financial calculations using functions.
@@ -145,20 +142,24 @@ new_loan = {
 
 # define a function to calculate present value
 
+
 def present_value(future_value, remaining_months, annual_discount_rate):
     present_value = future_value / (1 + (annual_discount_rate / 12)) ** remaining_months
     return present_value
+
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
 
 # Setting discount rate
-discount_rate = .2
+discount_rate = 0.2
 
 # Passing the dictionary values into the present value function
 
-present_value = present_value(new_loan["future_value"],new_loan["remaining_months"], discount_rate)
+present_value = present_value(
+    new_loan["future_value"], new_loan["remaining_months"], discount_rate
+)
 
 # Printing the present value and formatting to two decimel places
 print("The present value of the loan is: {0:,.2f}".format(present_value))
@@ -243,7 +244,7 @@ output_path = Path("inexpensive_loans.csv")
 # YOUR CODE HERE!
 #
 # Create the csvwriter object
-with open(output_path, 'w', newline='') as csvfile:
+with open(output_path, "w", newline="") as csvfile:
     csvwriter = csv.writer(csvfile)
 
     # Write our header row first!
