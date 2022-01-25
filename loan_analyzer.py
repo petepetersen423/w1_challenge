@@ -2,6 +2,9 @@
 import csv
 from pathlib import Path
 
+""" Pete Petetrsen
+    January 24, 2022
+"""
 """Part 1: Automate the Calculations.
 
 Automate the calculations for the loan portfolio summaries.
