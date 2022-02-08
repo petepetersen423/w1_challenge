@@ -244,7 +244,7 @@ output_path = Path("inexpensive_loans.csv")
 # YOUR CODE HERE!
 #
 # Create the csvwriter object
-with open(output_path, "w", newline="") as csvfile:
+with open(output_path, "rb") as csvfile:
     csvwriter = csv.writer(csvfile)
 
     # Write our header row first!
